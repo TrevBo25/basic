@@ -11,13 +11,15 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// This is the way to create an enpoint without the use of the controller
+app.get('/api/test', (req, res)=> {
 
-// This is the endpoint that the axios call from App.js will hit. This one specifically because '/api/test' matches that from the React side.
-// app.get('/api/test', (req, res)=> {
-//     res.status(200).send('http://i63.tinypic.com/2j9y8p.png');
-// })
+    // This is the response. It is sending information back to the React side. Saying a status of 200 means everything went great. The string in the .send is the link to the image that will be displayed.
+    res.status(200).send('http://i63.tinypic.com/2j9y8p.png');
+})
 
-app.get('/api/test', ctrl.test);
+// This is the way to create an enpoint with the use of the controller. This enpoint will do the exact same as the above.
+// app.get('/api/test', ctrl.test);
 
 
 // The number of the port is your choice, you just have to keep it consistent.

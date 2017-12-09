@@ -6,7 +6,7 @@ import './App.css';
 import axios from 'axios';
 
 class App extends Component {
-  // I build this constructor so we could have state to display what we receive from our server endpoint
+  // Buit the constructor so we could have state to display what we receive from our server endpoint
   constructor(){
     super()
     this.state ={
@@ -18,7 +18,10 @@ componentDidMount(){
   // Here I make the axios call to the server. The port on the localhost has to match the port that you chose to run your server on.
   axios.get('http://localhost:3535/api/test')
   .then(response => {
-    // In the response the data recevied from the axios call is sent on the data property. It is accessed by response.data.
+    // In the response the data recevied from the axios call is sent on the data property. Uncomment the line below to see the entire response object
+    // console.log(response.data)
+
+    // Data sent back from the server is more often than not accessed by response.data.
     // Here I am setting picture in state with this.setState to be the string that received from the server
     this.setState({
       picture: response.data
